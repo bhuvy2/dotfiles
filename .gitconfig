@@ -1,0 +1,22 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = "bvenkat2@illinois.edu" 
+# 	email = bhuvy@DESKTOP-BS27I0T.localdomain
+[user]
+	name = Bhuvan Venkatesh
+	email = bhuvan.venkatesh21@gmail.com
+	signkey = 7BDCC02CBFD4AFE6
+	signingkey = 77E19641C2D34AC2
+[push]
+	default = current
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
+[merge]
+	gpgsign = true
+[tag]
+	autosign = true
+[core]
+	autocrlf = false

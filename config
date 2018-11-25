@@ -1,0 +1,70 @@
+Host ews
+    HostName remlnx.ews.illinois.edu
+    User bvenkat2
+    ForwardAgent yes
+
+Match Host *-cs241-* exec "[ '$(netsh.exe wlan show interfaces | grep SSID | head -1 | cut -d: -f2 | xargs)' != 'IllinoisNet' ]"
+    User bvenkat2
+    ProxyCommand ssh -q -x ews -W %h:%p
+    ForwardAgent yes
+
+Match Host *425-* exec "[ '$(netsh.exe wlan show interfaces | grep SSID | head -1 | cut -d: -f2 | xargs)' != 'IllinoisNet' ]"
+    User bvenkat2
+    ProxyCommand ssh -q -x ews -W %h:%p
+    ForwardAgent yes
+
+Host 425-1
+    User bvenkat2
+    Hostname fa18-cs425-g10-01.cs.illinois.edu
+
+Host 425-2
+    User bvenkat2
+    Hostname fa18-cs425-g10-02.cs.illinois.edu
+
+Host 425-3
+    User bvenkat2
+    Hostname fa18-cs425-g10-03.cs.illinois.edu
+
+Host 425-4
+    User bvenkat2
+    Hostname fa18-cs425-g10-04.cs.illinois.edu
+
+
+Match Host condor* exec "[ '$(netsh.exe wlan show interfaces | grep SSID | head -1 | cut -d: -f2 | xargs)' != 'IllinoisNet' ]"
+    User bvenkat2
+    ProxyCommand ssh -q -x ews -W %h:%p
+    ForwardAgent yes
+
+Host condor
+    User bvenkat2
+    HostName condor.ews.illinois.edu 
+
+Host fa18-cs241-grd-01.cs.illinois.edu
+    User bvenkat2
+
+Host fa18-cs241-grd-02.cs.illinois.edu
+    User bvenkat2
+
+Host fa18-cs241-grd-13.cs.illinois.edu
+    User bvenkat2
+
+Host fa18-cs241-447.cs.illinois.edu
+    User bvenkat2
+
+Host web241
+    HostName cs241grader.web.engr.illinois.edu
+    User cs241grader
+
+Host github-dev.cs.illinois.edu
+    User git 
+    Hostname github-dev.cs.illinois.edu
+    IdentityFile ~/.ssh/id_rsa
+
+Match Host *courses* exec "[ '$(netsh.exe wlan show interfaces | grep SSID | head -1 | cut -d: -f2 | xargs)' != 'IllinoisNet' ]"
+    User bvenkat2
+    ProxyCommand ssh -q -x ews -W %h:%p
+    ForwardAgent yes
+
+Host courses
+    HostName ssh.courses.engr.illinois.edu
+    User bvenkat2
